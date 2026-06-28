@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="joke-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>😂 Random Joke Generator</h1>
+                <p>Get a laugh with random jokes from the internet</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Controls Section -->
+            <section class="controls">
+                <div class="control-group">
+                    <label for="jokeType">Joke Type:</label>
+                    <select id="jokeType" class="joke-select">
+                        <option value="any">Any Type</option>
+                        <option value="general">General</option>
+                        <option value="programming">Programming</option>
+                        <option value="knock-knock">Knock-Knock</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-generate" onclick="fetchJoke()">
+                    <span>🎭 Get a Joke</span>
+                </button>
+
+                <button class="btn btn-favorite" onclick="saveFavorite()" title="Save to favorites">
+                    <span>❤️ Save</span>
+                </button>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="spinner" id="spinner" style="display: none;"></div>
+
+            <!-- Joke Display Section -->
+            <section class="joke-section" id="jokeSection" style="display: none;">
+                <div class="joke-card">
+                    <div class="joke-type" id="jokeTypeDisplay"></div>
+                    <div class="joke-content" id="jokeContent"></div>
+                    <div class="joke-punchline" id="jokePunchline" style="display: none;"></div>
+                    <button class="btn btn-reveal" onclick="revealPunchline()" id="revealBtn">
+                        Reveal Punchline 👀
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number" id="jokeCount">0</div>
+                    <div class="stat-label">Jokes Loaded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="favoriteCount">0</div>
+                    <div class="stat-label">Favorites Saved</div>
+                </div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+                <div class="favorites-header">
+                    <h2>❤️ Favorite Jokes</h2>
+                    <button class="btn btn-small" onclick="clearFavorites()">Clear All</button>
+                </div>
+                <div class="favorites-list" id="favoritesList">
+                    <p class="no-favorites">No favorite jokes yet. Save some!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <a href="https://jokeapi.dev" target="_blank">JokeAPI</a></p>
+            <p>&copy; 2024 Random Joke Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="joke-script.js"></script>
+</body>
+</html>
